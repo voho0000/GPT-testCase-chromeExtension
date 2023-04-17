@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Test Case Generator",
+    "version": "1.0",
+    "description": "Generate test cases using GPT-3.5 Turbo",
+    "permissions": ["contextMenus", "tabs", "storage","activeTab"],
+    "host_permissions": ["http://localhost:5000/", "http://127.0.0.1:5000/"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      },
+      "default_title":"Send Message"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+  
