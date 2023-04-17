@@ -12,7 +12,7 @@ AZURE_API_KEY = os.getenv('AZURE_API_KEY')
 
 openai.api_type = "azure"
 # replace with you api endpoint
-openai.api_base = "https://user1-create-gpt.openai.azure.com/"
+openai.api_base = "https://YourOwn-OpenAI-EndPoint.openai.azure.com/"
 openai.api_version = "2022-12-01"
 openai.api_key = AZURE_API_KEY
 
