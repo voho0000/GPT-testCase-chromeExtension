@@ -10,7 +10,7 @@ This Chrome extension uses GPT-3.5 Turbo to generate test cases based on selecte
 
 ## Demo
 Check out the demo video of the Test Case Generator Chrome extension in action. Please note that there is a 20-second waiting period for GPT to complete the test case generation.  
-[demo video](https://youtu.be/eGu0ntAET_4)
+[Demo video Link](https://youtu.be/eGu0ntAET_4)
 
 ![demo](https://user-images.githubusercontent.com/39255863/232571004-79833bad-cbb7-4313-8ada-2a97da59ccd2.gif)
 
