@@ -17,19 +17,19 @@ Check out the demo video of the Test Case Generator Chrome extension in action. 
 
 1. Clone this repository
 
-2. Navigate to the project directory:
+2. Navigate to the project directory:  
 `cd GPT-testCase-chromeExtension`
 
-3. Install required Python packages:
+3. Install required Python packages:  
 `pip install -r requirements.txt`
 
-4. Create a `.env` file in the root directory of the project and add your OpenAI API key:
+4. Create a `.env` file in the root directory of the project and add your OpenAI API key:  
 `OPENAI_API_KEY = xxxxxx`
 
 5. Run the Flask server:
-- openai endpoint
+- openai endpoint  
 `python server.py`
-- azure endpoint (need to replace default endpoint to your own endpoint)
+- azure endpoint (need to replace default endpoint to your own endpoint)  
 `python server-azure.py` 
 
 6. If your Flask server is not hosted on port 5000, add the Flask hosting URL to the host_permissions in the manifest.json file
