@@ -10,7 +10,8 @@ This Chrome extension uses GPT-3.5 Turbo to generate test cases based on selecte
 
 ## Demo
 Check out the demo video of the Test Case Generator Chrome extension in action. Please note that there is a 20-second waiting period for GPT to complete the test case generation.
-![Demo Video](./demo-video.mov)
+![demo](https://user-images.githubusercontent.com/39255863/232571004-79833bad-cbb7-4313-8ada-2a97da59ccd2.gif)
+
 
 ## Installation
 
@@ -28,7 +29,7 @@ Check out the demo video of the Test Case Generator Chrome extension in action. 
 5. Run the Flask server:
 - openai endpoint
 `python server.py`
-- azure endpoint (need to replace your own endpoint)
+- azure endpoint (need to replace default endpoint to your own endpoint)
 `python server-azure.py` 
 
 6. If your Flask server is not hosted on port 5000, add the Flask hosting URL to the host_permissions in the manifest.json file
