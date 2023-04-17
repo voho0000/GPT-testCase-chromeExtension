@@ -35,6 +35,7 @@ Check out the demo video of the Test Case Generator Chrome extension in action. 
 - openai endpoint  
 `python server.py`
 - azure endpoint (need to replace default endpoint to your own endpoint)  
+`openai.api_base = "https://YourOwn-OpenAI-EndPoint.openai.azure.com/"`  
 `python server-azure.py` 
 
 6. If your Flask server is not hosted on port 5000, add the Flask hosting URL to the host_permissions in the manifest.json file
