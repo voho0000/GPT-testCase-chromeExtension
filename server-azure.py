@@ -29,15 +29,19 @@ def generate_test_case():
     prompt = f"請用台灣繁體中文回答問題，利用以下defect描述產出對應的測試案例: {defect_description}"
     print(prompt)
 
-    response = openai.Completion.create(
-        engine="gpt-35-turbo",
-        prompt=prompt,
-        temperature=0.3,
+    response = openai.ChatCompletion.create(
+        engine="gpt-35-turbo", 
+        messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt}
+    ],
+        temperature=0.5,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
         stop=None)
+    
     test_steps = response['choices'][0]['text'].strip()
 
     print(test_steps)
