@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'getSelectedText') {
-      //const selectedText = window.getSelection().toString();
+      const selectedText = window.getSelection().toString();
       fetch('http://127.0.0.1:5000/generate_test_case', {
         method: 'POST',
         headers: {
