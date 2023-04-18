@@ -18,14 +18,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         testCaseElement.innerText = "No test case generated yet.";
       }
     });
-  /** 
-    const generateButton = document.getElementById("generate-button");
-  
-    generateButton.addEventListener("click", () => {
-      chrome.runtime.sendMessage({
-        action: "showPopup",
-      });
-    });*/
 
     const clearButton = document.getElementById("clear-button");
 

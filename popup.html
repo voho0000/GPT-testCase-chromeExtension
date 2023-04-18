@@ -8,17 +8,67 @@
     body {
       font-family: Arial, sans-serif;
       margin: 16px;
+      padding: 10px; /* 添加一些padding */
       width: 400px; /* Set the desired width here */
+      line-height: 1.5; /* 將行高設置為1.5倍字體大小 */
+    }
+    textarea {
+        margin-bottom: 10px; /* 在textarea下方添加一些margin */
+        width: 100%; /* 設置textarea的寬度為100% */
+        display: block; /* 將textarea顯示為block元素 */
+        overflow: auto; /* 允許滾動條顯示 */
+        resize: vertical; /* 允許垂直調整大小 */
+         /* height: 60px; 設置textarea的高度為80px */
+      }
+      label {
+        display: block; /* 將label元素顯示為block元素 */
+        margin-bottom: 5px; /* 在label元素下方添加一些margin */
+      }
+      .wrapper {
+      display: flex; /* 設置彈性盒模型 */
+      flex-wrap: wrap; /* 設置自動換行 */
+    }
+    #selected-text {
+      margin-bottom: 10px; /* 在選擇的文本下方添加一些margin */
+    }
+    #prompt-prefix{
+      flex: 1 0 100%; /* 設置test-case寬度佔滿一行 */
+      white-space: pre-wrap;
+      word-wrap: break-word; /* Add this line */
+      width: 100%; /* 設置textarea的寬度為100% */
+      display: block; /* 將textarea顯示為block元素 */
+      overflow: auto;  /*允許滾動條顯示 */
+      resize: none;/*  禁止手動調整大小 */
+      padding: 10px; /* 添加padding */
+      border: 1px solid black;
     }
     #test-case {
+      flex: 1 0 100%; /* 設置test-case寬度佔滿一行 */
       white-space: pre-wrap;
+      word-wrap: break-word; /* Add this line */
+      width: 100%; /* 設置textarea的寬度為100% */
+      display: block; /* 將textarea顯示為block元素 */
+      overflow: auto;  /*允許滾動條顯示 */
+      resize: none;/*  禁止手動調整大小 */
+      padding: 10px; /* 添加padding */
+      border: 1px solid black;
     }
+    #clear-button {
+        margin-top: 10px; /* 在button元素上方添加一些margin */
+      }
   </style>
 </head>
 <body>
-  <h1>Generated Test Case</h1>
-  <div id="test-case"></div>
+  <h1>Generated Text</h1>
+  <div class="wrapper">
+  <label for="prompt-prefix">Prompt Prefix:</label>
+  <div id="prompt-prefix" class="textarea" contenteditable="true" rows="4" >請用台灣繁體中文回答問題，利用以下defect描述產出對應的測試案例</div>
+  <label for="selected-text">Selected Text:</label>
+  <div id="selected-text"></div>
+  <label for="test-case" >Completion:</label>
+    <div id="test-case" class="textarea" contenteditable="true"></div>
   <button id="clear-button">Clear Test Case</button>
+</div>
   <script src="popup.js"></script>
 </body>
 </html>

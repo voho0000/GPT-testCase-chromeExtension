@@ -17,11 +17,11 @@ CORS(app)
 @cross_origin()
 def generate_test_case():
     defect_description = request.json['defect_description']
-    
-    print(defect_description)
+    prompt_prefix = request.json["prompt_prefix"]
 
     # Call GPT-3 API with the defect_description
-    prompt = f"請用台灣繁體中文回答問題，利用以下defect描述產出對應的測試案例: {defect_description}"
+    prompt =f"{prompt_prefix} {defect_description}"
+    print(prompt)
     data = {
         "model": "gpt-3.5-turbo",
         "messages": [
