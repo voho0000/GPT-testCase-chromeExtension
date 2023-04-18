@@ -6,15 +6,14 @@ import json
 from dotenv import load_dotenv
 import os
 
-# Load the .env file located in the 'config' directory
+# Load the .env file located in the project directory
 load_dotenv()
 AZURE_API_KEY = os.getenv('AZURE_API_KEY')
 
 openai.api_type = "azure"
 # replace with you api endpoint
 openai.api_base = "https://YourOwn-OpenAI-EndPoint.openai.azure.com/"
-# openai.api_version = "2022-12-01"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-03-15-preview"
 openai.api_key = AZURE_API_KEY
 
 app = Flask(__name__)
@@ -30,19 +29,34 @@ def generate_test_case():
     prompt = f"請用台灣繁體中文回答問題，利用以下系統缺陷描述產出對應的測試案例: {defect_description}"
     print(prompt)
 
-    response = openai.ChatCompletion.create(
-        engine="gpt-35-turbo", 
-        messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ],
+    # If you use a GPT-3 series model, use the following code to call api
+    '''
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
         temperature=0.5,
         max_tokens=1000,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
         stop=None)
-    
+    test_steps = response['choices'][0]['text'].strip()
+    '''
+
+    # If you use GPT 3.5 or GPT 4, use the following code to call api
+    response = openai.ChatCompletion.create(
+        engine="gpt-35-turbo",  # engine="gpt-4",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.5,
+        max_tokens=1000,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=None)
+
     test_steps = response['choices'][0]['message']['content'].strip()
 
     print(test_steps)

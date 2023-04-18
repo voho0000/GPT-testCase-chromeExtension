@@ -6,7 +6,7 @@ import json
 from dotenv import load_dotenv
 import os
 
-# Load the .env file located in the 'config' directory
+# Load the .env file located in the project directory
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
