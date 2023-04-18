@@ -13,7 +13,8 @@ AZURE_API_KEY = os.getenv('AZURE_API_KEY')
 openai.api_type = "azure"
 # replace with you api endpoint
 openai.api_base = "https://YourOwn-OpenAI-EndPoint.openai.azure.com/"
-openai.api_version = "2022-12-01"
+# openai.api_version = "2022-12-01"
+openai.api_version = "2023-03-15-preview" 
 openai.api_key = AZURE_API_KEY
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def generate_test_case():
     defect_description = request.json['defect_description']
 
     # Call GPT-3 API with the defect_description
-    prompt = f"請用台灣繁體中文回答問題，利用以下defect描述產出對應的測試案例: {defect_description}"
+    prompt = f"請用台灣繁體中文回答問題，利用以下系統缺陷描述產出對應的測試案例: {defect_description}"
     print(prompt)
 
     response = openai.ChatCompletion.create(
@@ -42,7 +43,7 @@ def generate_test_case():
         presence_penalty=0,
         stop=None)
     
-    test_steps = response['choices'][0]['text'].strip()
+    test_steps = response['choices'][0]['message']['content'].strip()
 
     print(test_steps)
 
